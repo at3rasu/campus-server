@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { UsersModule } from "./users/users.module";
@@ -19,6 +19,7 @@ import { Image } from "./upload-files/images.model";
 import { ResumeModule } from './resume/resume.module';
 import { Resume } from "./resume/resume.model";
 import { AppController } from "./app.controller";
+import { FrontendMiddleware } from "./middlewares/frontend-middleware";
 
 
 @Module({
@@ -61,4 +62,10 @@ import { AppController } from "./app.controller";
     ]
 })
 
-export class AppModule{}
+export class AppModule implements NestModule{
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(FrontendMiddleware)
+      .forRoutes('**');
+  }
+}

@@ -23,7 +23,13 @@ const vacancies_model_1 = require("./vacancies/vacancies.model");
 const vacancies_module_1 = require("./vacancies/vacancies.module");
 const resume_module_1 = require("./resume/resume.module");
 const resume_model_1 = require("./resume/resume.model");
+const frontend_middleware_1 = require("./middlewares/frontend-middleware");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(frontend_middleware_1.FrontendMiddleware)
+            .forRoutes('**');
+    }
 };
 AppModule = __decorate([
     (0, common_1.Module)({

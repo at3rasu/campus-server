@@ -3,7 +3,7 @@ import { AppModule } from "./app.module"
 import * as cookieParser from 'cookie-parser'
 import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface";
 import { NestExpressApplication } from "@nestjs/platform-express";
-import path, { join } from "path";
+import path, { join, resolve } from "path";
 import * as express from 'express';
 
 async function start() {
@@ -20,6 +20,10 @@ async function start() {
 
   app.useStaticAssets(join(__dirname, '..', 'build'));
   //  app.use(express.static(path.resolve(__dirname, '..', 'build')));
+  /*app.get('*', function (req, res) {
+    res.sendFile(resolve(__dirname, '..', 'client', 'index.html')); // Adjust the path according to your frontend directory
+  });*/
+  //app.get('*', )
 
   await app.listen(PORT, () => console.log('Server started on port default' + PORT))
   
