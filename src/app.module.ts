@@ -18,10 +18,11 @@ import * as path from "path";
 import { Image } from "./upload-files/images.model";
 import { ResumeModule } from './resume/resume.module';
 import { Resume } from "./resume/resume.model";
+import { AppController } from "./app.controller";
 
 
 @Module({
-    controllers: [],
+    controllers: [AppController],
     providers: [],
     imports: [
       ConfigModule.forRoot({
