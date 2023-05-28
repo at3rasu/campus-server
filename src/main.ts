@@ -10,6 +10,7 @@ async function start() {
   const PORT = process.env.PORT || 5000
  
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
+  // const app = await NestFactory.create(AppModule)
   app.use(cookieParser())
   app.enableCors({
     origin: true,
@@ -18,6 +19,7 @@ async function start() {
   })
 
   app.useStaticAssets(join(__dirname, '..', 'build'));
+  //  app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
   await app.listen(PORT, () => console.log('Server started on port default' + PORT))
   

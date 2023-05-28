@@ -23,12 +23,11 @@ const vacancies_model_1 = require("./vacancies/vacancies.model");
 const vacancies_module_1 = require("./vacancies/vacancies.module");
 const resume_module_1 = require("./resume/resume.module");
 const resume_model_1 = require("./resume/resume.model");
-const app_controller_1 = require("./app.controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        controllers: [app_controller_1.AppController],
+        controllers: [],
         providers: [],
         imports: [
             config_1.ConfigModule.forRoot({

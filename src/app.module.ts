@@ -22,7 +22,7 @@ import { AppController } from "./app.controller";
 
 
 @Module({
-    controllers: [AppController],
+    controllers: [],
     providers: [],
     imports: [
       ConfigModule.forRoot({
