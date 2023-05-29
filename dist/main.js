@@ -14,7 +14,7 @@ async function start() {
         credentials: true,
     });
     app.useStaticAssets((0, path_1.join)(__dirname, '..', 'build'));
-    await app.listen(PORT, () => console.log('Server started on port default' + PORT));
+    await app.listen(PORT, () => console.log('Server started on port default ' + PORT));
 }
 start();
 //# sourceMappingURL=main.js.map

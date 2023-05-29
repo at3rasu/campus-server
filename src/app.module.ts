@@ -18,12 +18,11 @@ import * as path from "path";
 import { Image } from "./upload-files/images.model";
 import { ResumeModule } from './resume/resume.module';
 import { Resume } from "./resume/resume.model";
-import { AppController } from "./app.controller";
-import { FrontendMiddleware } from "./middlewares/frontend-middleware";
 
 
 @Module({
-    controllers: [],
+    controllers: [
+    ],
     providers: [],
     imports: [
       ConfigModule.forRoot({
@@ -33,6 +32,11 @@ import { FrontendMiddleware } from "./middlewares/frontend-middleware";
       // ServeStaticModule.forRoot({
       //   rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
       // }),
+      ServeStaticModule.forRoot({
+
+        rootPath: path.join(__dirname, '..', 'build'),
+        
+      }),
 
       SequelizeModule.forRoot({
         dialect: 'postgres',
@@ -62,10 +66,11 @@ import { FrontendMiddleware } from "./middlewares/frontend-middleware";
     ]
 })
 
-export class AppModule implements NestModule{
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(FrontendMiddleware)
-      .forRoutes('**');
-  }
-}
+// export class AppModule implements NestModule{
+//   configure(consumer: MiddlewareConsumer) {
+//     consumer
+//       .apply(FrontendMiddleware)
+//       .forRoutes('**');
+//   }
+// }
+export class AppModule{}

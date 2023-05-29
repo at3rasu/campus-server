@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FrontendMiddleware = void 0;
 const common_1 = require("@nestjs/common");
+const path_1 = require("path");
 let FrontendMiddleware = class FrontendMiddleware {
     use(req, res, next) {
-        console.log('Request...');
-        res.sendFile('index.html', { root: 'build' });
+        res.sendFile((0, path_1.join)(__dirname, '..', '..', 'build', 'index.html'));
     }
 };
 FrontendMiddleware = __decorate([
